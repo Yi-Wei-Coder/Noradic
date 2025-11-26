@@ -8,115 +8,130 @@
         :root {
             --primary: #004e66;
             --secondary: #e0f7fa;
-            --accent: #ff6f61;
-            --bg: #f8f9fa;
+            --bg: #f4f7f6;
             --text: #2c3e50;
             --success: #28a745;
             --danger: #dc3545;
             --warning: #ffc107;
             --price: #85bb65;
+            --schedule: #fff3cd;
+            --schedule-text: #856404;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
             padding: 0;
             padding-bottom: 80px;
+            -webkit-font-smoothing: antialiased;
         }
         header {
             background: linear-gradient(135deg, #004e66 0%, #002a3a 100%);
             color: white;
-            padding: 20px;
+            padding: 20px 15px;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        h1 { margin: 0 0 5px 0; font-size: 1.4rem; text-align: center; }
-        p.subtitle { margin: 0 0 15px; text-align: center; font-size: 0.8rem; opacity: 0.8; }
+        h1 { margin: 0 0 5px 0; font-size: 1.3rem; text-align: center; font-weight: 700; }
+        p.subtitle { margin: 0 0 15px; text-align: center; font-size: 0.8rem; opacity: 0.85; }
         
-        .controls { display: flex; gap: 10px; }
-        .search-box { flex: 1; position: relative; }
+        .search-box { position: relative; max-width: 600px; margin: 0 auto; }
         .search-box input {
-            width: 100%; padding: 10px 15px 10px 35px;
-            border-radius: 20px; border: none; background: rgba(255,255,255,0.95);
-            font-size: 15px; box-sizing: border-box;
+            width: 100%; padding: 12px 15px 12px 40px;
+            border-radius: 25px; border: none; background: rgba(255,255,255,0.95);
+            font-size: 15px; box-sizing: border-box; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #666; }
+        .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #666; }
         
-        .container { max-width: 800px; margin: 15px auto; padding: 0 10px; }
+        .container { max-width: 800px; margin: 15px auto; padding: 0 12px; }
 
         .day-card {
-            background: white; border-radius: 16px; margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); overflow: hidden;
+            background: white; border-radius: 16px; margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden;
         }
         
         .day-header {
-            padding: 12px 15px; background: #fff; border-bottom: 1px solid #f0f0f0;
+            padding: 15px; background: #fff; border-bottom: 1px solid #f0f0f0;
             display: flex; justify-content: space-between; align-items: center; cursor: pointer;
         }
-        .day-info h2 { margin: 0; font-size: 1.1rem; color: var(--primary); }
-        .day-loc { font-size: 0.85rem; color: #666; margin-top: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .day-info h2 { margin: 0; font-size: 1.1rem; color: var(--primary); font-weight: 700; }
+        .day-loc { font-size: 0.85rem; color: #666; margin-top: 5px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
         
+        /* Badges */
         .weather-badge {
             font-size: 0.75rem; background: #e3f2fd; color: #1565c0;
-            padding: 2px 8px; border-radius: 12px; display: inline-flex; align-items: center;
+            padding: 3px 8px; border-radius: 12px; display: inline-flex; align-items: center; font-weight: 500;
         }
         .aurora-badge {
             font-size: 0.75rem; background: linear-gradient(45deg, #1a237e, #4a148c); color: #a7ffeb;
-            padding: 2px 8px; border-radius: 12px; display: none; margin-left: 5px;
-            animation: glow 2s infinite alternate; cursor: pointer;
+            padding: 3px 8px; border-radius: 12px; display: none; margin-left: 5px;
+            animation: glow 2s infinite alternate; cursor: pointer; font-weight: bold;
         }
-        @keyframes glow { from { text-shadow: 0 0 2px #a7ffeb; } to { text-shadow: 0 0 8px #a7ffeb; } }
+        @keyframes glow { from { box-shadow: 0 0 2px #a7ffeb; } to { box-shadow: 0 0 8px #a7ffeb; } }
 
         .day-content { padding: 5px 15px 15px; display: block; }
 
-        .item { display: flex; gap: 12px; margin-top: 15px; position: relative; }
+        .item { display: flex; gap: 12px; margin-top: 18px; position: relative; }
         .item::before {
-            content: ''; position: absolute; left: 20px; top: 28px; bottom: -20px;
+            content: ''; position: absolute; left: 22px; top: 30px; bottom: -25px;
             width: 2px; background: #f0f0f0; z-index: 0;
         }
         .item:last-child::before { display: none; }
 
-        .time-col { min-width: 45px; text-align: right; z-index: 1; }
-        .time { font-size: 0.9rem; font-weight: 700; color: var(--text); background: white; }
+        .time-col { min-width: 50px; text-align: right; z-index: 1; }
+        .time { font-size: 0.95rem; font-weight: 700; color: var(--text); background: white; padding-bottom: 2px; }
         .duration { font-size: 0.65rem; color: #999; display: block; margin-top: 2px; }
 
         .details-col {
-            flex: 1; background: #fafafa; padding: 10px; border-radius: 10px; border: 1px solid #eee;
+            flex: 1; background: #fafafa; padding: 12px; border-radius: 12px; border: 1px solid #eee;
         }
-        .name-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; }
+        .name-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
         .name { font-weight: 600; font-size: 1rem; color: var(--primary); line-height: 1.3; }
         
+        /* Status Dot */
         .status-dot { height: 8px; width: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }
         .status-open { background-color: var(--success); box-shadow: 0 0 4px var(--success); }
         .status-closed { background-color: var(--danger); }
         .status-closing { background-color: var(--warning); }
-        .status-text { font-size: 0.7rem; color: #666; font-weight: normal; white-space: nowrap; }
+        .status-text { font-size: 0.7rem; color: #666; font-weight: normal; white-space: nowrap; margin-left: 5px; }
 
-        .tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
-        .tag { padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; color: white; }
+        /* Tags */
+        .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+        .tag { padding: 3px 8px; border-radius: 6px; font-size: 0.7rem; color: white; font-weight: 500; }
         .tag.transport { background-color: #5c6bc0; }
         .tag.food { background-color: #ef5350; }
         .tag.spot { background-color: #66bb6a; }
-        .tag.hotel { background-color: #455a64; }
-        .tag.price { background-color: transparent; border: 1px solid var(--price); color: var(--price); font-weight: bold; }
+        .tag.hotel { background-color: #546e7a; }
+        .tag.price { background-color: transparent; border: 1px solid var(--price); color: var(--price); font-weight: bold; padding: 2px 6px; }
         
-        .transport-detail {
-            font-size: 0.75rem; color: #5c6bc0; background: #e8eaf6; 
-            padding: 4px 8px; border-radius: 4px; margin-bottom: 6px; display: inline-block;
+        /* Schedule Info */
+        .schedule-info {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--schedule-text);
+            background-color: var(--schedule);
+            padding: 6px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #ffecb3;
         }
 
-        .note { font-size: 0.85rem; color: #555; margin-top: 5px; line-height: 1.4; }
-        .hours-info { font-size: 0.75rem; color: #888; margin-top: 4px; display: block; border-top: 1px dashed #eee; padding-top: 4px; }
+        .transport-badge {
+            font-size: 0.75rem; color: #5c6bc0; background: #e8eaf6; 
+            padding: 4px 8px; border-radius: 4px; margin-right: 5px; display: inline-block; font-weight: 600;
+        }
 
-        a { text-decoration: none; color: inherit; }
+        .note { font-size: 0.85rem; color: #555; margin-top: 6px; line-height: 1.5; }
+        .hours-info { font-size: 0.75rem; color: #888; margin-top: 6px; display: block; border-top: 1px dashed #eee; padding-top: 6px; }
+
+        a { text-decoration: none; color: inherit; display: block; }
         
-        /* 住宿資訊區塊 */
-        .hotel-info {
-            margin-top: 8px; background: #eceff1; padding: 8px; border-radius: 6px;
-            font-size: 0.8rem; color: #37474f; display: flex; align-items: center; gap: 6px;
+        .hotel-bar {
+            margin-top: 10px; background: #eceff1; padding: 8px 12px; border-radius: 8px;
+            font-size: 0.8rem; color: #37474f; display: flex; align-items: center; gap: 6px; font-weight: 500;
         }
     </style>
 </head>
@@ -124,19 +139,17 @@
 
 <header>
     <h1>2025 北歐極光之旅</h1>
-    <p class="subtitle">行程與交通即時查閱</p>
-    <div class="controls">
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="搜尋 (如: 魚湯, Bus 8, 極光...)" onkeyup="filterItinerary()">
-        </div>
+    <p class="subtitle">行程、交通時刻與極光預測</p>
+    <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="搜尋 (如: 火車, Bus 8, 魚湯...)" onkeyup="filterItinerary()">
     </div>
 </header>
 
 <div class="container" id="itinerary-container"></div>
 
 <script>
-    // 城市座標 (用於即時天氣)
+    // 城市座標
     const LOCS = {
         "Oslo": { lat: 59.91, lon: 10.75 },
         "Flåm": { lat: 60.86, lon: 7.11 },
@@ -148,26 +161,26 @@
         "Copenhagen": { lat: 55.67, lon: 12.56 }
     };
 
-    // 行程資料 (已補全交通線路與票價)
+    // 行程資料庫 (時間嚴格參照使用者提供的表格)
     const data = [
         {
             date: "11/29", day: "Sat", loc: "Oslo",
             hotel: "Comfort Hotel Xpress Central Station",
             items: [
-                { type: "transport", time: "07:05", name: "抵達奧斯陸 (TG594)", note: "機場快線 Flytoget (貴) 或 Vy Regional (便宜)", duration: "25min", transport: "推薦搭 Vy 火車 (往 Oslo S)" },
-                { type: "hotel", time: "Check-in", name: "Comfort Hotel Xpress", note: "Central Station 旁，放行李", duration: "" },
-                { type: "food", time: "12:00", name: "Fiskeriet Youngstorget", note: "知名魚湯/海鮮，人多需排隊", price: "約 200-300 NOK", hours: "12:00-22:00", openRule: {s: [12,22]} },
+                { type: "transport", time: "07:05", name: "抵達奧斯陸 (TG594)", note: "機場快線 Flytoget (貴/快) 或 Vy (便宜)", duration: "25min", transport: "Train", schedule: "Flytoget: 每10分 | Vy: 每20分 (推薦)" },
+                { type: "hotel", time: "Check-in", name: "Comfort Hotel Xpress", note: "Central Station 旁，先寄放行李", duration: "" },
+                { type: "food", time: "12:00", name: "Fiskeriet Youngstorget", note: "知名魚湯/海鮮，人多需排隊", price: "約 200 NOK", hours: "12:00-22:00", openRule: {s: [12,22]} },
                 { type: "spot", time: "14:00", name: "奧斯陸歌劇院", note: "走路可達，必爬屋頂看風景", price: "免費", hours: "Always Open", openRule: "24h" },
-                { type: "spot", time: "15:30", name: "Munch Museum (孟克)", note: "就在歌劇院旁，看《吶喊》", price: "成人 220 NOK", hours: "10:00-21:00", openRule: {s: [10,21]} },
-                { type: "food", time: "18:00", name: "Engebret Cafe", note: "奧斯陸最古老餐廳 (週六17點開)", price: "主餐 400+ NOK", hours: "17:00-23:00", openRule: {s: [17,23]} }
+                { type: "spot", time: "15:30", name: "Munch Museum (孟克)", note: "就在歌劇院旁，看《吶喊》", price: "220 NOK", hours: "10:00-21:00", openRule: {s: [10,21]} },
+                { type: "food", time: "18:00", name: "Engebret Cafe", note: "奧斯陸最古老餐廳", price: "主餐 400+ NOK", hours: "17:00-23:00", openRule: {s: [17,23]} }
             ]
         },
         {
             date: "11/30", day: "Sun", loc: "Oslo -> Flåm",
             hotel: "Flåm Holiday Home",
             items: [
-                { type: "transport", time: "08:25", name: "火車 Oslo S -> Myrdal", note: "挪威縮影第一段", duration: "4h 40m", transport: "Bergensbanen" },
-                { type: "transport", time: "13:15", name: "高山火車 Myrdal -> Flåm", note: "世界最美鐵路 (坐右側)", duration: "50m", transport: "Flåmsbana" },
+                { type: "transport", time: "08:25", name: "火車 Oslo S -> Myrdal", note: "挪威縮影第一段", duration: "抵達 13:04", transport: "Train", schedule: "發車: 08:25 (務必準時)" },
+                { type: "transport", time: "13:15", name: "高山火車 Myrdal -> Flåm", note: "世界最美鐵路 (坐右側)", duration: "抵達 14:05", transport: "Flåmsbana", schedule: "轉乘: 13:15 (Myrdal 出發)" },
                 { type: "spot", time: "15:00", name: "Stegastein 觀景台", note: "需在遊客中心搭巴士，俯瞰峽灣", price: "約 350 NOK", hours: "需查巴士班次", openRule: "24h" },
                 { type: "food", time: "18:00", name: "Ægir BrewPub", note: "維京風格精釀啤酒與晚餐", price: "漢堡約 250 NOK", hours: "12:00-22:00", openRule: {u: [12,22]} }
             ]
@@ -176,37 +189,35 @@
             date: "12/01", day: "Mon", loc: "Flåm -> Bergen",
             hotel: "Rosenberg Apartments",
             items: [
-                { type: "transport", time: "09:30", name: "渡輪 Flåm -> Gudvangen", note: "峽灣巡航 (Future of The Fjords)", duration: "2h", transport: "Ferry" },
-                { type: "transport", time: "11:30", name: "巴士 Gudvangen -> Voss", note: "經 Voss 水源地", duration: "1h", transport: "Bus 950" },
-                { type: "transport", time: "13:51", name: "火車 Voss -> Bergen", note: "抵達 14:59", duration: "1h 10m", transport: "Vy Train" },
+                { type: "transport", time: "09:30", name: "渡輪 Flåm -> Gudvangen", note: "峽灣巡航 (Future of The Fjords)", duration: "抵達 11:30", transport: "Ferry", schedule: "發船: 09:30" },
+                { type: "transport", time: "11:40", name: "巴士 Gudvangen -> Voss", note: "Bus 950 (配合渡輪時間)", duration: "約 1hr", transport: "Bus 950", schedule: "配合渡輪抵達後發車" },
+                { type: "transport", time: "13:51", name: "火車 Voss -> Bergen", note: "前往卑爾根", duration: "抵達 14:59", transport: "Vy Train", schedule: "發車: 13:51" },
                 { type: "spot", time: "15:30", name: "Bryggen 布呂根", note: "世界遺產彩色木屋", price: "免費", hours: "Open Area", openRule: "24h" },
-                { type: "spot", time: "16:30", name: "Fløibanen 纜車", note: "上山看卑爾根夜景 (開很晚)", price: "約 140 NOK", hours: "07:30-23:00", openRule: {w: [7.5, 23]} },
-                { type: "food", time: "晚餐", name: "Trekroneren", note: "著名的馴鹿熱狗攤", price: "約 75 NOK", hours: "11:00-03:00", openRule: {w: [11, 27]} }
+                { type: "spot", time: "16:30", name: "Fløibanen 纜車", note: "上山看卑爾根夜景 (開很晚)", price: "140 NOK", hours: "07:30-23:00", openRule: {w: [7.5, 23]} },
+                { type: "food", time: "晚餐", name: "Trekroneren", note: "著名的馴鹿熱狗攤", price: "75 NOK", hours: "11:00-03:00", openRule: {w: [11, 27]} }
             ]
         },
         {
             date: "12/02", day: "Tue", loc: "Bergen -> Helsinki",
             hotel: "VR Night Train (臥鋪)",
             items: [
-                { type: "transport", time: "09:20", name: "飛機 AY922 -> Helsinki", note: "抵達 12:50", duration: "2h 30m", transport: "Finnair" },
-                { type: "transport", time: "13:30", name: "機場 -> 市區", note: "搭火車 I/P 線到中央車站", duration: "30min", transport: "HSL Train" },
+                { type: "transport", time: "09:20", name: "飛機 AY922 -> Helsinki", note: "抵達 12:50", duration: "2h 30m", transport: "Finnair", schedule: "09:20 起飛 (需提早到機場)" },
+                { type: "transport", time: "13:30", name: "機場 -> 市區", note: "搭 I/P 火車到中央車站", duration: "30min", transport: "Train", schedule: "每10分鐘一班" },
                 { type: "food", time: "14:00", name: "Old Market Hall (老農貿市場)", note: "Pho Viet / Soup+More", price: "湯約 13 EUR", hours: "08:00-18:00", openRule: {w: [8, 18]} },
-                { type: "spot", time: "15:00", name: "岩石教堂 (Temppeliaukio)", note: "著名的岩石中教堂", price: "約 5-8 EUR", hours: "10:00-16:50", openRule: {w: [10, 16.8]} },
-                { type: "spot", time: "16:30", name: "靜默教堂 (Kamppi)", note: "市中心木製教堂", price: "5 EUR", hours: "10:00-18:00", openRule: {w: [10, 18]} },
+                { type: "spot", time: "15:00", name: "岩石教堂 (Temppeliaukio)", note: "著名的岩石中教堂", price: "5 EUR", hours: "10:00-16:50", openRule: {w: [10, 16.8]} },
                 { type: "spot", time: "17:30", name: "Oodi 中央圖書館", note: "絕美建築，免費休息", price: "免費", hours: "08:00-21:00", openRule: {w: [8, 21]} },
-                { type: "food", time: "18:30", name: "Robert's Coffee", note: "藍莓派", price: "約 8 EUR", hours: "07:30-20:00", openRule: {w: [7.5, 20]} },
-                { type: "transport", time: "19:29", name: "臥鋪火車 -> Rovaniemi", note: "前往北極圈", duration: "12hr", transport: "VR Train 265" }
+                { type: "transport", time: "19:29", name: "臥鋪火車 -> Rovaniemi", note: "前往北極圈", duration: "抵達 07:20", transport: "VR Train", schedule: "發車: 19:29 (Helsinki 中央車站)" }
             ]
         },
         {
             date: "12/03", day: "Wed", loc: "Rovaniemi",
             hotel: "Northern Lights Village (Pyhä)",
             items: [
-                { type: "transport", time: "07:20", name: "抵達 Rovaniemi", note: "寄放行李或直接去村", duration: "", transport: "VR Train" },
-                { type: "transport", time: "08:00", name: "前往聖誕老人村", note: "搭 Bus 8 或 Santa's Express", duration: "20min", transport: "Bus 8" },
+                { type: "transport", time: "07:20", name: "抵達 Rovaniemi", note: "火車抵達", duration: "", transport: "Train" },
+                { type: "transport", time: "08:00", name: "前往聖誕老人村", note: "搭 Bus 8 或 Santa's Express", duration: "20min", transport: "Bus", schedule: "Bus 8: 冬季約每小時一班 (07:25, 08:15...)" },
                 { type: "spot", time: "08:30", name: "聖誕老人村", note: "跨越北極圈線、寄明信片", price: "入園免費", hours: "08:00-20:00", openRule: {w: [8, 20]} },
                 { type: "spot", time: "13:00", name: "Arktikum 極地博物館", note: "玻璃長廊 (搭 Bus 8 回市區)", price: "18 EUR", hours: "10:00-18:00", openRule: {w: [10, 18]} },
-                { type: "transport", time: "16:35", name: "接駁車 ROV -> Pyhä", note: "前往極光度假村", duration: "1h 45m", transport: "SkiBus / Hotel Shuttle" },
+                { type: "transport", time: "16:35", name: "接駁車 ROV A/P -> Pyhä", note: "前往極光度假村 (機場出發)", duration: "抵達 18:20", transport: "Shuttle", schedule: "表定發車: 16:35 (@ROV Airport)" },
                 { type: "hotel", time: "Night", name: "Northern Lights Village", note: "入住玻璃屋", duration: "" }
             ]
         },
@@ -215,33 +226,31 @@
             hotel: "VR Night Train (臥鋪)",
             items: [
                 { type: "spot", time: "10:00", name: "滑雪課程 (Skiing)", note: "Pyhä 滑雪場", price: "需預約", hours: "09:30-19:00", openRule: {w: [9.5, 19]} },
-                { type: "spot", time: "14:30", name: "哈士奇雪橇 (Husky Safari)", note: "度假村活動", price: "約 150 EUR", hours: "需預約", openRule: "Reserved" },
-                { type: "transport", time: "17:05", name: "接駁車 NLV -> Rovaniemi", note: "返回火車站", duration: "1h 45m", transport: "SkiBus" },
-                { type: "transport", time: "21:00", name: "臥鋪火車 -> Helsinki", note: "VR Train 274", duration: "12hr", transport: "VR Train" }
+                { type: "spot", time: "14:30", name: "哈士奇雪橇 (Husky Safari)", note: "度假村活動", price: "150 EUR", hours: "需預約", openRule: "Reserved" },
+                { type: "transport", time: "17:05", name: "接駁車 NLV -> Rovaniemi", note: "返回 Rovaniemi A/P", duration: "抵達 18:50", transport: "Shuttle", schedule: "表定發車: 17:05 (@NLV)" },
+                { type: "transport", time: "21:00", name: "臥鋪火車 -> Helsinki", note: "返回赫爾辛基", duration: "抵達 09:15", transport: "VR Train", schedule: "發車: 21:00 (Rovaniemi 車站)" }
             ]
         },
         {
             date: "12/05", day: "Fri", loc: "Helsinki",
             hotel: "Helsinki Hotel (市區)",
             items: [
-                { type: "transport", time: "09:15", name: "抵達 Helsinki", note: "中央車站", duration: "", transport: "VR Train" },
-                { type: "spot", time: "10:30", name: "赫爾辛基座堂 (白教堂)", note: "參議院廣場地標", price: "免費/自由捐獻", hours: "09:00-18:00", openRule: {w: [9, 18]} },
-                { type: "spot", time: "11:30", name: "烏斯佩斯基大教堂", note: "紅磚東正教堂", price: "免費", hours: "09:30-16:00", openRule: {w: [9.5, 16]} },
-                { type: "food", time: "12:30", name: "哈卡尼米市場 (Hakaniemi)", note: "搭電車/地鐵前往，喝魚湯", price: "約 12-15 EUR", hours: "08:00-18:00", openRule: {w: [8, 18]} },
-                { type: "spot", time: "15:00", name: "Löyly Helsinki", note: "桑拿體驗 (強烈建議預約)", price: "24 EUR/2h", hours: "13:00-23:00", openRule: {w: [13, 23]} },
-                { type: "food", time: "晚餐", name: "Tawook Lab", note: "中東料理評價高", price: "15-20 EUR", hours: "11:00-21:00", openRule: {w: [11, 21]} }
+                { type: "transport", time: "09:15", name: "抵達 Helsinki", note: "中央車站", duration: "", transport: "Train" },
+                { type: "spot", time: "10:30", name: "赫爾辛基座堂 (白教堂)", note: "參議院廣場地標", price: "免費", hours: "09:00-18:00", openRule: {w: [9, 18]} },
+                { type: "food", time: "12:30", name: "哈卡尼米市場 (Hakaniemi)", note: "搭電車前往，喝魚湯", price: "12-15 EUR", hours: "08:00-18:00", openRule: {w: [8, 18]} },
+                { type: "spot", time: "15:00", name: "Löyly Helsinki", note: "桑拿體驗 (強烈建議預約)", price: "24 EUR", hours: "13:00-23:00", openRule: {w: [13, 23]} },
+                { type: "food", time: "晚餐", name: "Tawook Lab", note: "中東料理評價高", price: "15 EUR", hours: "11:00-21:00", openRule: {w: [11, 21]} }
             ]
         },
         {
             date: "12/06", day: "Sat", loc: "Helsinki -> Tallinn",
             hotel: "16eur - Fat Margaret's",
             items: [
-                { type: "transport", time: "08:00", name: "前往西碼頭 (West Terminal)", note: "搭電車 7 或 9 號", duration: "20min", transport: "Tram 7/9" },
-                { type: "transport", time: "09:00", name: "渡輪 -> Tallinn", note: "Eckerö / Tallink (需提早 Check-in)", duration: "2h 15m", transport: "Ferry" },
+                { type: "transport", time: "08:00", name: "前往西碼頭 (West Terminal)", note: "搭電車 7 或 9 號", duration: "20min", transport: "Tram 7/9", schedule: "電車約 10 分鐘一班" },
+                { type: "transport", time: "09:00", name: "渡輪 -> Tallinn", note: "Eckerö / Tallink (需提早 Check-in)", duration: "抵達 11:15", transport: "Ferry", schedule: "開船: 09:00 (Check-in: 08:00)" },
                 { type: "hotel", time: "12:00", name: "Check-in 放行李", note: "Fat Margaret's Hostel", duration: "" },
                 { type: "spot", time: "13:00", name: "塔林老城區 (Old Town)", note: "Kohtuotsa 觀景台、亞歷山大涅夫斯基教堂", price: "免費", hours: "24h", openRule: "24h" },
-                { type: "spot", time: "16:00", name: "市政廳廣場聖誕市集", note: "歐洲最美聖誕市集", price: "免費", hours: "10:00-20:00", openRule: {s: [10, 20]} },
-                { type: "hotel", time: "Night", name: "Fat Margaret's", note: "住宿", duration: "" }
+                { type: "spot", time: "16:00", name: "市政廳廣場聖誕市集", note: "歐洲最美聖誕市集", price: "免費", hours: "10:00-20:00", openRule: {s: [10, 20]} }
             ]
         },
         {
@@ -249,19 +258,18 @@
             hotel: "Generator Copenhagen",
             items: [
                 { type: "spot", time: "Morning", name: "Telliskivi 創意園區", note: "文青小店與塗鴉牆", price: "免費", hours: "10:00-19:00", openRule: {u: [10, 19]} },
-                { type: "transport", time: "13:30", name: "前往塔林機場", note: "搭 Tram 4 或 Bolt", duration: "20min", transport: "Tram 4" },
-                { type: "transport", time: "15:45", name: "飛機 SK1787 -> Copenhagen", note: "抵達 16:20", duration: "1h 35m", transport: "SAS" },
-                { type: "transport", time: "17:00", name: "機場 -> 市區", note: "火車或地鐵到 Kongens Nytorv", duration: "20min", transport: "Metro M2" },
-                { type: "spot", time: "18:30", name: "Tivoli Gardens", note: "必去聖誕樂園 (建議先買票)", price: "門票 160 DKK", hours: "11:00-22:00", openRule: {u: [11, 22]} },
-                { type: "hotel", time: "Night", name: "Generator Copenhagen", note: "靠近 Kongens Nytorv", duration: "" }
+                { type: "transport", time: "13:30", name: "前往塔林機場", note: "搭 Tram 4 或 Bolt", duration: "20min", transport: "Tram 4", schedule: "電車 4 號線 (每 6-10 分一班)" },
+                { type: "transport", time: "15:45", name: "飛機 SK1787 -> Copenhagen", note: "抵達 16:20", duration: "1h 35m", transport: "SAS", schedule: "起飛: 15:45" },
+                { type: "transport", time: "17:00", name: "機場 -> 市區", note: "地鐵 M2 到 Kongens Nytorv", duration: "15min", transport: "Metro M2", schedule: "每 4-6 分鐘一班 (24小時營運)" },
+                { type: "spot", time: "18:30", name: "Tivoli Gardens", note: "必去聖誕樂園 (建議先買票)", price: "160 DKK", hours: "11:00-22:00", openRule: {u: [11, 22]} }
             ]
         },
         {
             date: "12/08", day: "Mon", loc: "Copenhagen",
             hotel: "Generator Copenhagen",
             items: [
-                { type: "transport", time: "09:00", name: "火車 -> Helsingør", note: "去哈姆雷特城堡 (每20分一班)", duration: "45min", transport: "Train (Regional)" },
-                { type: "spot", time: "10:00", name: "Kronborg (哈姆雷特城堡)", note: "世界遺產", price: "145 DKK", hours: "10:00-16:00 (週一可能休館，需確認)", openRule: {w: [10, 16]} },
+                { type: "transport", time: "09:00", name: "火車 -> Helsingør", note: "去哈姆雷特城堡", duration: "45min", transport: "Regional Train", schedule: "每 20 分鐘一班 (往 Helsingør 方向)" },
+                { type: "spot", time: "10:00", name: "Kronborg (哈姆雷特城堡)", note: "世界遺產", price: "145 DKK", hours: "10:00-16:00", openRule: {w: [10, 16]} },
                 { type: "spot", time: "14:00", name: "小美人魚 & Kastellet", note: "海邊要塞散步", price: "免費", hours: "24h", openRule: "24h" },
                 { type: "spot", time: "16:00", name: "Nyhavn (新港)", note: "彩色屋運河，適合拍照", price: "免費", hours: "24h", openRule: "24h" },
                 { type: "spot", time: "17:30", name: "Strøget 購物街 & LEGO", note: "歐洲最長步行街", price: "免費", hours: "10:00-19:00", openRule: {w: [10, 19]} }
@@ -272,8 +280,8 @@
             hotel: "Home Sweet Home",
             items: [
                 { type: "spot", time: "Morning", name: "最後採買 / 咖啡", note: "市區漫步", duration: "2hr" },
-                { type: "transport", time: "11:00", name: "前往機場", note: "提前抵達", duration: "30min", transport: "Metro M2" },
-                { type: "transport", time: "13:50", name: "飛機 TG951 -> Bangkok", note: "Heading home", duration: "", transport: "Thai Airways" }
+                { type: "transport", time: "11:00", name: "前往機場", note: "提前抵達", duration: "15min", transport: "Metro M2", schedule: "每 4-6 分鐘一班" },
+                { type: "transport", time: "13:50", name: "飛機 TG951 -> Bangkok", note: "Heading home", duration: "", transport: "Thai Airways", schedule: "起飛: 13:50" }
             ]
         }
     ];
@@ -303,9 +311,12 @@
                 const query = encodeURIComponent(item.name + " " + day.loc.split('->')[0]);
                 const mapLink = `https://www.google.com/maps/search/?api=1&query=${query}`;
                 
-                const transportBadge = item.transport ? `<span class="transport-detail">🚌 ${item.transport}</span>` : '';
+                const transportBadge = item.transport ? `<span class="transport-badge">🚌 ${item.transport}</span>` : '';
                 const priceBadge = item.price ? `<span class="tag price">💰 ${item.price}</span>` : '';
                 const hoursText = item.hours ? `<span class="hours-info">🕒 時間: ${item.hours}</span>` : '';
+                
+                // 新增：班次 Schedule 顯示
+                const scheduleHtml = item.schedule ? `<div class="schedule-info">⏱️ 班次: ${item.schedule}</div>` : '';
 
                 itemsHtml += `
                 <a href="${mapLink}" target="_blank">
@@ -319,10 +330,14 @@
                                 <span class="name">${item.name}</span>
                                 ${statusHtml}
                             </div>
+                            
+                            ${scheduleHtml} <!-- 插入班次資訊 -->
+
                             <div class="tags">
                                 <span class="tag ${item.type}">${getTypeLabel(item.type)}</span>
                                 ${priceBadge}
                             </div>
+                            
                             ${transportBadge}
                             <div class="note">${item.note}</div>
                             ${hoursText}
@@ -332,7 +347,7 @@
             });
 
             // 住宿區塊
-            const hotelHtml = day.hotel ? `<div class="hotel-info">🛏️ 住宿: <b>${day.hotel}</b></div>` : '';
+            const hotelHtml = day.hotel ? `<div class="hotel-bar">🛏️ 住宿: ${day.hotel}</div>` : '';
 
             const card = document.createElement('div');
             card.className = 'day-card';
@@ -345,11 +360,11 @@
                             <span id="${wId}" class="weather-badge">載入中...</span>
                             <span id="${aId}" class="aurora-badge" onclick="window.open('https://www.swpc.noaa.gov/products/aurora-30-minute-forecast', '_blank'); event.stopPropagation();">✨ 極光預測</span>
                         </div>
-                        ${hotelHtml}
                     </div>
                     <div style="color:#ccc">▼</div>
                 </div>
                 <div class="day-content" id="day-${i}" style="display:${i===0?'block':'none'}">
+                    ${hotelHtml}
                     ${itemsHtml}
                 </div>
             `;
